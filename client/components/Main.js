@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Main = () => {
-    return (
-        <div>
-            <h1>
-                <Link to="/" >Boite à Idées</Link>
-
-            </h1>
-            { React.cloneElement(this.props.children, this.props) }
-
-            
-        </div>
-    )
-}
+const Main = React.createClass({
+    render() {
+        return (
+            <div>
+                <h1>
+                    <Link to="/" >Boite à Idées</Link>
+                </h1>
+                { React.cloneElement(this.props.children, this.props) }
+            </div>
+        )
+    }
+});
 
 export default Main
