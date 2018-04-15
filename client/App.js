@@ -20,12 +20,14 @@ import store, { history } from './store';
 
 // Router
 const router = (
-  <Router history={browserHistory}>
-    <Route path='/' component={Main}>
-      <IndexRoute component={PhotoGrid} />
-    </Route>
-    <Route path='/view/:postId' component={Single} />
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path='/' component={Main}>
+        <IndexRoute component={PhotoGrid} />
+      </Route>
+      <Route path='/view/:postId' component={Single} />
+    </Router>
+  </Provider>
 );
 
 // Render
