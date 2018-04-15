@@ -12,6 +12,12 @@ import PhotoGrid from './components/PhotoGrid';
 // Import React Router Deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+// Import Provider
+import { Provider } from 'react-redux';
+
+// Import Store, History
+import store, { history } from './store';
+
 // Router
 const router = (
   <Router history={browserHistory}>
