@@ -1,7 +1,7 @@
 const comments = {
   "BAhvZrRwcfu":[
     {
-      "text":"Totally need to try this.",
+      "text":"J'ai vraiment envie d'essayer ça !",
       "user": "heavymetaladam"
     }
   ],

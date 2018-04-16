@@ -1,11 +1,14 @@
-import React from 'React';
+import React from 'react';
 import { Link } from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Photo = React.createClass({
   render() {
     const { post, i, comments } = this.props;
+    console.log(this.props);
+
     return (
+      // HTML Return
       <figure className='grid-figure'>
         <div className='grid-photo-wrap'>
           <Link to={`/view/${post.code}`}>
@@ -28,20 +31,20 @@ const Photo = React.createClass({
         </div>
 
         <figcaption>
-        <p>{post.caption}</p>
-            <div className="control-buttons">
-                <button className="likes"> &hearts; { post.likes} </button>
-                <Link className="button" to={`/view/${post.code}`}>
-                    <span className="comment-count">
-                        <span className="speech-bubble"></span>
-                            { comments[post.code] ? comments[post.code].length : 0 }
-                        
-                    </span>
-                </Link>
-            </div>
-            
+          <p>{post.caption}</p>
+          <div className='control-buttons'>
+            <button onClick={this.props.increment.bind(null, i)} className='likes'>
+              {' '}
+              &hearts; {post.likes}{' '}
+            </button>
+            <Link className='button' to={`/view/${post.code}`}>
+              <span className='comment-count'>
+                <span className='speech-bubble' />
+                {comments[post.code] ? comments[post.code].length : 0}
+              </span>
+            </Link>
+          </div>
         </figcaption>
-        
       </figure>
     );
   }
