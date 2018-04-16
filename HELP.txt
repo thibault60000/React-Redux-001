@@ -1,0 +1,21 @@
+Les actions : il s'agit d'un événement déclenché par le serveur ou d'une interaction utilisateur
+
+les reducers : les actions relatent ce qui se passent mais c'est aux reducers de spécifier 
+qu'est ce qu'on doit faire suivant l'interaction. eux seuls ont la capacité de modifier l'état de l'application.
+
+Le store : Il est créé à partir d'un ou en combinant plusieurs reducers. On peut obtenir l'état 
+actuel de notre application. il permet d'envoyer des actions aux reducers . Du coup on peut mettre 
+plusieurs listeners qui vont s'abonner aux changement d'états.
+
+L’objet store possède trois méthodes :
+
+- [subscribe] qui permet a tout écouteur (listener) d’être notifié en cas de modification du store. Les gestionnaires de vues (comme React) vont souscrire au store pour être notifié des modification et effectuer mettre à jour l’interface graphique en conséquence.
+
+- [dispach] qui prend en paramètre une action et exécute le reducer qui va, à son tour, mettre à jour le store avec un nouvel état.
+
+- [getState] qui retourne l’état courant du store. L’objet retourné ne doit pas être modifié.
+
+Pour donner accès au store au différents composants d’une application React, Redux offre le composant [[[Provider]]].
+
+[[[mapStateToProps]]] pour définir des propriétés (props) dans le composant à partir des valeurs du store.
+[[[mapDispatchToProps]]] pour définir des fonctions de callback dans les props qui vont être bindées avec la fonction dispatch et vont faire appel au reducer.
