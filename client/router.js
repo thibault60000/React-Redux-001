@@ -18,6 +18,25 @@ import { Provider } from 'react-redux';
 // Import Store, History
 import store, { history } from './store';
 
+// Raven  -   Sentry
+import Raven from 'raven-js';
+import { sentry_url, logException } from './data/config';
+
+Raven.config(sentry_url,{
+  tags: {
+    git_commit: 'zaeazgagz',
+    userLevel: 'editor'
+  }
+}).install();
+
+/* logException(new Error('Téléchargement échoué!'), {
+  email: 'thibault60000@gmail.com'
+});  */
+
+Raven.captureMessage('Quelque chose est arrivé!');
+// Raven.showReportDialog();
+
+
 // Router
 const router = (
   <Provider store={store}>
